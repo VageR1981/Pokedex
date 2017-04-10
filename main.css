@@ -16,10 +16,18 @@ header, footer{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-  
 	width: 100%;
 }
+.pokeflex-item{
+    background-color:#CE9B64;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
 .pokelist-container{
+		flex-direction: row;
+	flex-wrap:wrap;
+	display:flex;
 	-webkit-box-ordinal-group: 2;
 	-moz-box-ordinal-group: 2;
 	-ms-flex-order: 2;
