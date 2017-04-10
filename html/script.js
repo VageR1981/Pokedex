@@ -32,8 +32,12 @@ var pokemonList=[
 ];
 
 function start(){
-  console.log('start');
+ console.log('start');
  var container= document.querySelector(".pokelist-container");
- //container.appendChild("<div>alma</div>");
+ /*console.log(container);
+ var newDiv = document.createElement("div");
+ var newContent = document.createTextNode("<div></div>"); 
+ newDiv.appendChild(newContent); //add the text node to the newly created div. */
+ container.innerHTML('<div class="pokeflex-item"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png" alt="hegomon">    <p>Hegomon</p>   </div>');
 }
 start();
