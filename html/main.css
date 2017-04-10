@@ -91,8 +91,8 @@ background: -moz-radial-gradient(center, ellipse cover,  #b9dfde 46%, #6db7b5 10
 background: -webkit-radial-gradient(center, ellipse cover,  #b9dfde 46%,#6db7b5 100%); /* Chrome10-25,Safari5.1-6 */
 background: radial-gradient(ellipse at center,  #b9dfde 46%,#6db7b5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9dfde', endColorstr='#6db7b5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-
+border-top-left-radius: 25px; /**/
+border-bottom-left-radius: 25px;
 }
 .box3{
 	-webkit-box-ordinal-group: 3;
