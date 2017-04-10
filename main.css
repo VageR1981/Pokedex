@@ -42,6 +42,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0043b0ba', e
     height: 200px;
     margin: 10px;
     text-align:center;
+    border-radius: 25px;
+    padding: 20px;
+    width: 200px;
+    height: 150px; 
 }
 
 .pokeflex-item p{
