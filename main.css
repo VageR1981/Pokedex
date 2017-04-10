@@ -23,7 +23,13 @@ header, footer{
     width: 200px;
     height: 200px;
     margin: 10px;
+    text-align:center;
 }
+
+.pokeflex-item p{
+    font-size:35px;
+}
+
 .pokelist-container{
 		flex-direction: row;
 	flex-wrap:wrap;
