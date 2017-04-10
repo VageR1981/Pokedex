@@ -82,6 +82,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0043b0ba', e
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
+	padding: 20px;
   
 	/*background-color: #CE9B64;*/
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b9dfde+0,6db7b5+100 */
