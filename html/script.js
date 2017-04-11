@@ -34,6 +34,20 @@ var pokemonList=[
 function start(){
  console.log('start');
  var container= document.querySelector(".pokelist-container");
+ pokemonList.forEach(function(item){
+    var pokeDiv = document.createElement("div");
+    var pokeImg = document.createElement("img");
+    var pokeName = document.createElement("p");
+
+    pokeDiv.setAttribute("class", "pokeflex-item")
+    pokeImg.setAttribute("src", item.sprite);
+    
+    pokeName.innerHTML = item.name;
+    
+    pokeDiv.appendChild(pokeImg);
+    pokeDiv.appendChild(pokeName);
+    container.appendChild(pokeDiv);
+ });
  /*console.log(container);
  var newDiv = document.createElement("div");
  var newContent = document.createTextNode("<div></div>"); 
