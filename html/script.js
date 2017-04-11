@@ -1,7 +1,7 @@
 function start() {
     console.log('start');
     var container = document.querySelector(".pokelist-container");
-    console.log(typeof container);
+    //console.log(typeof container);
     pokemonList.forEach(function(item) {
         var pokeDiv = document.createElement("div");
         var pokeImg = document.createElement("img");
@@ -26,20 +26,20 @@ function startFetch() {
     //loderImg.setAttribute("src", "loading.gif");
     //containerLoader.appendChild(loderImg);
 
-    fetch('http://pokeapi.co/api/v2/pokemon/?limit=50')
+    fetch('//pokeapi.co/api/v2/pokemon/?limit=50')
         .then(function(response) { return response.json(); })
         .then(function(json) {
             containerLoader.setAttribute("style", "display:none");
             for (var i = 0; i < json.results.length; i++) {
                 var pokeDiv = document.createElement("div");
                 var pokeImg = document.createElement("img");
-                var pokeName = document.createElement("p");
+                var pokeName = document.createElement("label");
 
                 pokeDiv.setAttribute("class", "pokeflex-item");
                 var splitArray = json.results[i].url.split("/");
                 var splitArrayLength = splitArray.length;
-                console.log(splitArray);
-                var imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
+                //console.log(splitArray);
+                var imgUrl = `//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
                 pokeImg.setAttribute("src", imgUrl);
 
                 pokeName.innerHTML = json.results[i].name;

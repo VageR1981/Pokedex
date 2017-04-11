@@ -4,6 +4,7 @@
 }
 
 body {
+    font-family: fantasy;
     padding: 2em;
     /*background-color: #6D899F;*/
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f85032+0,f16f5c+50,f6290c+51,f02f17+71,e73827+100;Red+Gloss+%231 */
@@ -18,6 +19,14 @@ body {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#febbbb', endColorstr='#ff5c5c', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 header,
@@ -33,6 +42,20 @@ footer {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#0043b0ba', endColorstr='#00ffffff', GradientType=1);
     /* IE6-9 */
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -83,8 +106,11 @@ footer {
     height: 150px;
 }
 
-.pokeflex-item p {
+.pokeflex-item label {
     font-size: 35px;
+    display: block;
+    text-rendering: optimizeLegibility;
+    text-transform: capitalize;
 }
 
 .pokelist-container {
@@ -102,6 +128,8 @@ footer {
     -ms-flex: 3;
     flex: 3;
     background-color: #BCD39B;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .pokemenu {
@@ -132,6 +160,8 @@ footer {
     border-top-left-radius: 25px;
     /**/
     border-bottom-left-radius: 25px;
+    /*max-height: 800px;*/
+    overflow-y: auto;
 }
 
 .box3 {
