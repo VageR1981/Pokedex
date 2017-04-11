@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: fantasy;
+    font-family: cursive;
     padding: 2em;
     /*background-color: #6D899F;*/
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f85032+0,f16f5c+50,f6290c+51,f02f17+71,e73827+100;Red+Gloss+%231 */
@@ -22,11 +22,12 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    min-height: 100vh;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    box-sizing: border-box;
+    min-height: 100vh;
 }
 
 header,
@@ -91,6 +92,7 @@ footer {
     display: -webkit-flex;
     display: flex;
     width: 100%;
+    flex: 1;
 }
 
 .pokeflex-item {
@@ -128,7 +130,7 @@ footer {
     -ms-flex: 3;
     flex: 3;
     background-color: #BCD39B;
-    max-height: 500px;
+    max-height: 100vh;
     overflow-y: auto;
 }
 
