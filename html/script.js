@@ -51,7 +51,36 @@ function start() {
   });
 }
 function startFetch() {
-  var myList = document.querySelector('ul');
+  //var myList = document.querySelector('ul');
+  var container = document.querySelector(".pokelist-container");
+  fetch('http://pokeapi.co/api/v2/pokemon/?limit=50')
+    .then(function (response) { return response.json(); })
+    .then(function (json) {
+      for (var i = 0; i < json.results.length; i++) {
+        var pokeDiv = document.createElement("div");
+        var pokeImg = document.createElement("img");
+        var pokeName = document.createElement("p");
+
+        pokeDiv.setAttribute("class", "pokeflex-item");
+        var splitArray=json.results[i].url.split("/");
+        var splitArrayLength=splitArray.length;
+        console.log(splitArray);
+        var imgUrl='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+splitArray[splitArrayLength-2]+'.png';
+        pokeImg.setAttribute("src", imgUrl);
+
+        pokeName.innerHTML = json.results[i].name;
+
+        pokeDiv.appendChild(pokeImg);
+        pokeDiv.appendChild(pokeName);
+        container.appendChild(pokeDiv);
+      }
+    });
+}
+
+
+function startFetchOld() {
+  //var myList = document.querySelector('ul');
+  //var container = document.querySelector(".pokelist-container");
   fetch('http://pokeapi.co/api/v2/pokemon/?limit=50')
     .then(function (response) { return response.json(); })
     .then(function (json) {
