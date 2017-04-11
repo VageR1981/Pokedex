@@ -65,7 +65,7 @@ function startFetch() {
         var splitArray=json.results[i].url.split("/");
         var splitArrayLength=splitArray.length;
         console.log(splitArray);
-        var imgUrl='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+splitArray[splitArrayLength-2]+'.png';
+        var imgUrl=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
         pokeImg.setAttribute("src", imgUrl);
 
         pokeName.innerHTML = json.results[i].name;
