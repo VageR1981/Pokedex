@@ -29,6 +29,7 @@ function startFetch() {
     fetch('http://pokeapi.co/api/v2/pokemon/?limit=50')
         .then(function(response) { return response.json(); })
         .then(function(json) {
+            jsonResponse = json.results;
             containerLoader.setAttribute("style", "display:none");
             for (var i = 0; i < json.results.length; i++) {
                 var pokeDiv = document.createElement("div");
@@ -51,4 +52,55 @@ function startFetch() {
         });
 }
 
+function renderingPokeContainer(searchStr) {
+
+    var container = document.querySelector(".pokelist-container");
+    var containerLoader = document.querySelector("#loaderContainer");
+
+    containerLoader.setAttribute("style", "display:none");
+    container.innerHTML = '';
+    for (var i = 0; i < jsonResponse.length; i++) {
+
+        if (checkName(jsonResponse[i].name, searchStr)) {
+
+            var pokeDiv = document.createElement("div");
+            var pokeImg = document.createElement("img");
+            var pokeName = document.createElement("label");
+
+            pokeDiv.setAttribute("class", "pokeflex-item");
+            var splitArray = jsonResponse[i].url.split("/");
+            var splitArrayLength = splitArray.length;
+            //console.log(splitArray);
+            var imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
+            pokeImg.setAttribute("src", imgUrl);
+
+            pokeName.innerHTML = jsonResponse[i].name;
+
+            pokeDiv.appendChild(pokeImg);
+            pokeDiv.appendChild(pokeName);
+            container.appendChild(pokeDiv);
+        }
+    }
+}
+
+function checkName(name, searchStr) {
+    searchStr = searchStr.toLowerCase();
+    if (name.indexOf(searchStr) >= 0) {
+        return true;
+    }
+    return false;
+}
+
+function addSearchListener() {
+    var container = document.querySelector("#input_search");
+    container.addEventListener('change', searchHandler);
+}
+
+function searchHandler(e) {
+    console.log(e.target.value);
+    console.log(jsonResponse);
+    renderingPokeContainer(e.target.value);
+}
+
 startFetch();
+addSearchListener();

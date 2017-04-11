@@ -30,6 +30,21 @@ body {
     height: 100vh;
 }
 
+.headerClass {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/*.headerTitleContainer {
+    float: left
+}
+
+.searchContainer {
+    float: right
+}*/
+
 header,
 footer {
     /*background-color: #FFFFFF;*/
