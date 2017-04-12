@@ -123,6 +123,10 @@ footer {
     height: 150px;
 }
 
+.pokeflex-item:hover {
+    opacity: 0.5;
+}
+
 .pokeflex-item label {
     font-size: 35px;
     display: block;
