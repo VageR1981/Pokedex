@@ -125,6 +125,7 @@ footer {
 
 .pokeflex-item:hover {
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .pokeflex-item label {
