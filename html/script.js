@@ -42,9 +42,7 @@ function startFetch() {
 
                 pokeDiv.setAttribute("class", "pokeflex-item");
                 pokeDiv.setAttribute("id", pokeId);
-                pokeDiv.addEventListener("click", clickHandler);
-                //pokeImg.addEventListener("click", function() { return false; });
-                //pokeName.addEventListener("click", function() { return false; });
+
                 //pokeDiv.onclick = clickHandler;
                 //console.log(splitArray);
 
@@ -56,15 +54,21 @@ function startFetch() {
                 pokeDiv.appendChild(pokeImg);
                 pokeDiv.appendChild(pokeName);
                 container.appendChild(pokeDiv);
+
+                pokeDiv.addEventListener("click", clickHandler);
+                pokeImg.addEventListener("click", function() { return false; });
+                pokeName.addEventListener("click", function() { return false; });
             }
         });
 }
 
 function clickHandler(e) {
-    console.log(e.target);
+    //console.log(e.target);
+    console.log(this.id);
+    getDetails(this.id);
 }
 
-function getDetails() {
+function getDetails(id) {
     //var myList = document.querySelector('ul');
     //var container = document.querySelector(".pokelist-container");
     //var containerLoader = document.querySelector("#loaderContainer");
@@ -72,7 +76,7 @@ function getDetails() {
     //loderImg.setAttribute("src", "loading.gif");
     //containerLoader.appendChild(loderImg);
 
-    fetch('//pokeapi.co/api/v2/pokemon/1/')
+    fetch('//pokeapi.co/api/v2/pokemon/' + id)
         .then(function(response) { return response.json(); })
         .then(function(json) {
             console.log(json);
@@ -117,7 +121,7 @@ function renderingPokeContainer(searchStr) {
             var splitArray = jsonResponse[i].url.split("/");
             var splitArrayLength = splitArray.length;
             //console.log(splitArray);
-            var imgUrl = `//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
+            var imgUrl = '//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png';
             pokeImg.setAttribute("src", imgUrl);
 
             pokeName.innerHTML = jsonResponse[i].name;
