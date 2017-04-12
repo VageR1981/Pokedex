@@ -26,7 +26,7 @@ function startFetch() {
     //loderImg.setAttribute("src", "loading.gif");
     //containerLoader.appendChild(loderImg);
 
-    fetch('http://pokeapi.co/api/v2/pokemon/?limit=50')
+    fetch('//pokeapi.co/api/v2/pokemon/?limit=50')
         .then(function(response) { return response.json(); })
         .then(function(json) {
             jsonResponse = json.results;
@@ -40,7 +40,7 @@ function startFetch() {
                 var splitArray = json.results[i].url.split("/");
                 var splitArrayLength = splitArray.length;
                 //console.log(splitArray);
-                var imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
+                var imgUrl = `//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
                 pokeImg.setAttribute("src", imgUrl);
 
                 pokeName.innerHTML = json.results[i].name;
@@ -71,7 +71,7 @@ function renderingPokeContainer(searchStr) {
             var splitArray = jsonResponse[i].url.split("/");
             var splitArrayLength = splitArray.length;
             //console.log(splitArray);
-            var imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
+            var imgUrl = `//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[splitArrayLength-2]}.png`;
             pokeImg.setAttribute("src", imgUrl);
 
             pokeName.innerHTML = jsonResponse[i].name;
