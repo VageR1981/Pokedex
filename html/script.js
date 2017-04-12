@@ -40,6 +40,7 @@ function start() {
 }
 
 function startFetch() {
+
     //var myList = document.querySelector('ul');
     var container = document.querySelector(".pokelist-container");
     var containerLoader = document.querySelector("#loaderContainer");
@@ -47,7 +48,9 @@ function startFetch() {
     //loderImg.setAttribute("src", "loading.gif");
     //containerLoader.appendChild(loderImg);
 
-    fetch('//pokeapi.co/api/v2/pokemon/?limit=50')
+    //http://pokeapi.co/api/v2/type/
+
+    fetch('//pokeapi.co/api/v2/pokemon/?limit=10')
         .then(function(response) { return response.json(); })
         .then(function(json) {
             jsonResponse = json.results;
@@ -83,6 +86,53 @@ function startFetch() {
                 pokeName.addEventListener("click", function() { return false; });
             }
         });
+
+}
+
+var map = new Map();
+
+function getTypes(){
+
+    fetch('http://pokeapi.co/api/v2/type/')
+        .then(function(response){return response.json()})
+        .then(function(json){
+
+            var typeArray = json.results;
+            var promises = [];
+
+            for(var i = 0; i < typeArray.length; i++){
+
+                
+                var element = typeArray[i];
+                map.set(element.name, element);
+
+                promises.push(
+                    
+                    fetch(element.url)
+                            .then(function(response){return response.json()})
+                            .then(function(json){
+
+                                var pokemons = json.pokemon;
+                                var object = map.get(json.name);
+                                
+                                if(object){
+                                    object.pokemons = (!pokemons) ? [] : pokemons;
+                                }
+
+                }));
+
+            }
+
+            Promise.all(promises).then(function(values){
+                console.log("hello!!");
+                console.log(map);
+            }).catch(function(error){
+                console.log(error);
+            });
+
+
+        });
+
 }
 
 function clickHandler(e) {
@@ -176,4 +226,5 @@ function searchHandler(e) {
 }
 
 startFetch();
+getTypes();
 addSearchListener();
